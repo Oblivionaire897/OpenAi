@@ -1,124 +1,145 @@
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li> <a href="#Versione Brutta">Versione senza grafica</a> </li>
-    <ul>
-      <li> <a href="#Descrizione">Descrizione del progetto</a> </li>
-      <li> <a href="#Funzionalità Principali">Funzionalità principali</a> </li>
-      <li> <a href="##Dipendenze">Dipendenze</a> </li>
-      <li> <a href="## Configurazione Iniziale">Configurazione</a> </li>
-      <li> <a href="## Come Utilizzarlo">Come si usa</a> </li>
-      <ul>
-        <li> <a href="### Interazione con AI">Interazione con AI</a> </li>
-        <li> <a href="### Esportazione della Chat">Esportazione della Chat</a> </li>
-        <li> <a href="### Personalizzazione">Personalizzazione</a> </li>
-        <li> <a href="### Configurazione API">Configurazione API</a> </li> 
-      </ul>
-      <li> <a href="## Shortcut da Tastiera">Scorciatoie da tastiera</a> </li>
-      <li> <a href="## Struttura dell'Interfaccia">Interfaccia</a> </li>
-      <li> <a href="## Requisiti di Sistema">Requisiti di sistema</a> </li>
-      <li> <a href="## Struttura del Codice">Struttura del codice</a> </li>
-    </ul>
-    <li> <a href="#Versione Bella">Versione Con Grafica</a> </li>
-  </ol>
-</details>
+
+# Chat Magika con AI - Versione NoGrafica & ConGrafica
+
+## Indice
+- [Introduzione](#introduzione)
+- [Versioni del Programma](#versioni-del-programma)
+  - [Versione NoGrafica](#versione-nografica)
+  - [Versione ConGrafica](#versione-congrafica)
+- [Caratteristiche Principali](#caratteristiche-principali)
+- [Dipendenze](#dipendenze)
+- [Installazione](#installazione)
+- [Come Utilizzarlo](#come-utilizzarlo)
+  - [Interazione con AI](#interazione-con-ai)
+  - [Esportazione della Chat](#esportazione-della-chat)
+  - [Personalizzazione](#personalizzazione)
+  - [Configurazione API](#configurazione-api)
+- [Shortcut da Tastiera](#shortcut-da-tastiera)
+- [Requisiti di Sistema](#requisiti-di-sistema)
+- [Struttura del Codice](#struttura-del-codice)
+  
+---
+
+## Introduzione
+**Chat Magika con AI** è un'applicazione Python progettata per facilitare l'interazione con i modelli di intelligenza artificiale OpenAI. Offre due versioni tra cui scegliere:
+1. **Versione NoGrafica**: Interfaccia tradizionale e semplice basata su `tkinter`.
+2. **Versione ConGrafica**: Interfaccia avanzata e moderna basata su `customtkinter`.
 
 ---
 
-# Chat con AI
+## Versioni del Programma
 
-## Descrizione
-**Chat Magika con AI** è un'applicazione Python con interfaccia grafica (GUI) che consente di interagire con un'intelligenza artificiale OpenAI. L'app offre funzioni per la gestione di conversazioni, esportazione di dati e personalizzazione visiva, garantendo un'esperienza interattiva e personalizzabile.
+### Versione NoGrafica
+La **Versione NoGrafica** è minimalista, leggera e utilizza librerie standard come `tkinter`.
+
+#### Funzionalità
+- Gestione delle API con un'interfaccia semplice.
+- Esportazione della chat in formato **PDF**, **TXT** o **JSON**.
+- Personalizzazione di font e colori.
+- Shortcut da tastiera per azioni rapide (es. nuova chat, cambio API Key).
+
+### Versione ConGrafica
+La **Versione ConGrafica** porta un'interfaccia più raffinata grazie a `customtkinter`, ottimizzando l'aspetto visivo e la gestione delle funzionalità.
+
+#### Funzionalità
+- Barre laterali per gestire input, temi e parametri.
+- Personalizzazione avanzata:
+  - Cambia temi (Chiaro, Scuro, Ocean, Verde).
+  - Modifica colori di sfondi, box e sidebar.
+- Slider e input per configurare parametri come temperatura e token.
+- Layout centrale moderno per visualizzare conversazioni.
 
 ---
 
-## Funzionalità Principali
-- 🧠 **Interazione con AI**: Chatta con un modello GPT tramite API OpenAI.
-- 📂 **Esportazione**: Salva le conversazioni in **PDF**, **TXT** o **JSON**.
-- 🎨 **Personalizzazione Tema**: Cambia tema (Classic, Ocean, Scuro, Verde) o definisci i colori manualmente.
-- ✍️ **Modifica Font**: Personalizza stile e dimensione del testo.
-- 🔑 **Gestione API**: Configura chiave API e parametri avanzati (es. temperatura e token massimi).
-- 🔄 **Supporto Multithreading**: Animazione di caricamento durante l'elaborazione delle risposte.
-- ⌨️ **Shortcut da Tastiera**: Esegui azioni rapide con combinazioni di tasti (es. nuova chat o modifica API key).
+## Caratteristiche Principali
+- **Interazione con AI**: Comunicazione diretta con modelli GPT tramite API OpenAI.
+- **Esportazione dati**: Salva conversazioni in diversi formati.
+- **Personalizzazione completa**:
+  - Cambia temi, font e colori.
+  - Modifica layout e impostazioni API.
+- **Compatibilità multipiattaforma**: Funziona su vari sistemi operativi.
 
 ---
 
 ## Dipendenze
 ### Librerie Python
-- **tkinter**: Per la gestione della GUI.
-- **fitz (PyMuPDF)**: Per la manipolazione e lettura dei file PDF.
-- **openai**: Per la comunicazione con le API OpenAI.
-- **PyTaskbar**: Per l'integrazione con la barra delle applicazioni su Windows.
-- **json, os, time, threading, ctypes**: Librerie standard di Python.
+- `tkinter` (per NoGrafica)
+- `customtkinter` (per ConGrafica)
+- `fitz` (PyMuPDF): Per manipolazione dei file PDF.
+- `openai`: Per la comunicazione con l'API.
+- `pytaskbar`: Per l'integrazione con la barra delle applicazioni (opzionale su Windows).
+- Altre librerie native: `json`, `os`, `time`, `threading`, `ctypes`.
 
 ---
 
-## Configurazione Iniziale
-1. Assicurati di avere una chiave API OpenAI valida.
-2. Inserisci la chiave al primo avvio oppure tramite la voce di menu `Cambia API Key`.
+## Installazione
+1. **Clona il repository** o scarica i file sorgenti.
+2. Installa le dipendenze richieste:
+   ```bash
+   pip install openai pymupdf customtkinter pytaskbar
+   ```
+3. Avvia la versione desiderata:
+   - Per la **Versione NoGrafica**:
+     ```bash
+     python AI_NoGrafica.py
+     ```
+   - Per la **Versione ConGrafica**:
+     ```bash
+     python AI_ConGrafica.py
+     ```
 
 ---
 
 ## Come Utilizzarlo
+
 ### Interazione con AI
-1. Inserisci il tuo messaggio nel campo di input.
+1. Inserisci il messaggio nel campo di input.
 2. Premi **Invia** o utilizza il tasto **Enter**.
-3. La risposta dell'AI verrà mostrata nell'area di testo principale.
+3. Visualizza la risposta dell'AI nella finestra principale.
+
+---
 
 ### Esportazione della Chat
-- Vai su `Chat > Esporta Chat` e seleziona il formato desiderato:
-  - **PDF**: Genera un documento con la conversazione.
+- Esporta la chat selezionando il formato:
+  - **PDF**: Salva la conversazione in un documento leggibile.
   - **TXT**: Esporta come file di testo semplice.
-  - **JSON**: Salva in formato strutturato per elaborazioni future.
+  - **JSON**: Salva la conversazione in formato strutturato.
+
+---
 
 ### Personalizzazione
-- Cambia il tema andando su `Personalizzazione > Cambia Tema`.
-- Modifica font e colori tramite `Personalizzazione > Personalizza`.
+- Modifica il tema accedendo a `Personalizzazione > Cambia Tema`.
+- Personalizza i colori e i font tramite il menu dedicato.
+
+---
 
 ### Configurazione API
-- Cambia la chiave API tramite `Chat > Cambia API Key`.
-- Imposta i parametri di temperatura e token massimi tramite `Personalizzazione > Impostazioni API`.
+- Cambia la chiave API tramite il menu `Chat > Cambia API Key`.
+- Configura parametri come temperatura e token tramite il menu `Personalizzazione > Impostazioni API`.
 
 ---
 
 ## Shortcut da Tastiera
 - **Ctrl + N**: Avvia una nuova chat.
 - **Ctrl + K**: Cambia la chiave API.
-- **Ctrl + Q**: Chiudi l'applicazione.
-
----
-
-## Struttura dell'Interfaccia
-- **Area di Testo Principale**: Mostra la cronologia della conversazione.
-- **Campo di Input**: Inserisci il messaggio da inviare.
-- **Pulsanti**: Per inviare messaggi o interagire con l'applicativo.
-- **Menu**:
-  - **Chat**: Nuova chat, reset, cambio API Key, esportazione.
-  - **Personalizzazione**: Cambia tema, font e colori.
+- **Ctrl + Q**: Esci dall'applicazione.
 
 ---
 
 ## Requisiti di Sistema
-- **Sistema Operativo**: Windows (consigliato per PyTaskbar), adattabile ad altri OS.
+- **Sistema Operativo**:
+  - Windows (consigliato per PyTaskbar).
+  - Altri OS: Compatibile ma con funzionalità limitate.
 - **Python**: Versione 3.7 o superiore.
-- **Librerie**: Installabili tramite `pip install`.
 
 ---
 
 ## Struttura del Codice
 ### Funzioni Principali
-- **`invio_messaggio()`**: Gestisce l'invio dei messaggi e riceve le risposte dall'AI.
-- **`esporta_chat_pdf()`**: Esporta la chat in un file PDF.
-- **`esporta_chat_testo()`**: Esporta la chat in un file di testo.
-- **`esporta_chat_json()`**: Esporta la chat in formato JSON.
-- **`ConfigureAPI()`**: Configura la chiave API per l'AI.
-- **`NuovaChat()`**: Avvia una nuova chat, resettando la cronologia.
-- **`set_theme(theme)`**: Cambia il tema della GUI.
-
----
-
-## Installazione
-1. Clona il repository o scarica il file sorgente.
-2. Installa le dipendenze richieste:
-   ```bash
-   pip install openai pymupdf pytaskbar
+- **`invio_messaggio()`**: Gestisce l'invio di messaggi e riceve risposte dall'AI.
+- **`esporta_chat_pdf()`**: Esporta la chat in formato PDF.
+- **`esporta_chat_testo()`**: Esporta la chat in formato TXT.
+- **`esporta_chat_json()`**: Salva la chat in formato JSON.
+- **`ConfigureAPI()`**: Configura la chiave API per OpenAI.
+- **`set_theme()`**: Cambia il tema grafico della GUI.
+- **`NuovaChat()`**: Resetta la conversazione corrente.
