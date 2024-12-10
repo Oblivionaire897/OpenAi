@@ -367,7 +367,7 @@ def ImpostazioniAPI():
             temperature = float(temperature_entry.get())
             api_settings["tokens"] = tokens
             api_settings["temperature"] = temperature
-            with open('api_settings.json', 'w') as file:
+            with open('00_api_settings.json', 'w') as file:
                 json.dump(api_settings, file)
             messagebox.showinfo("Successo", "Impostazioni API aggiornate con successo.")
         except ValueError:
