@@ -1,4 +1,31 @@
-# Chat Magika con AI
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li> <a href="#Versione Brutta">Versione senza grafica</a> </li>
+    <ul>
+      <li> <a href="#Descrizione">Descrizione del progetto</a> </li>
+      <li> <a href="#Funzionalità Principali">Funzionalità principali</a> </li>
+      <li> <a href="##Dipendenze">Dipendenze</a> </li>
+      <li> <a href="## Configurazione Iniziale">Configurazione</a> </li>
+      <li> <a href="## Come Utilizzarlo">Come si usa</a> </li>
+      <ul>
+        <li> <a href="### Interazione con AI">Interazione con AI</a> </li>
+        <li> <a href="### Esportazione della Chat">Esportazione della Chat</a> </li>
+        <li> <a href="### Personalizzazione">Personalizzazione</a> </li>
+        <li> <a href="### Configurazione API">Configurazione API</a> </li> 
+      </ul>
+      <li> <a href="## Shortcut da Tastiera">Scorciatoie da tastiera</a> </li>
+      <li> <a href="## Struttura dell'Interfaccia">Interfaccia</a> </li>
+      <li> <a href="## Requisiti di Sistema">Requisiti di sistema</a> </li>
+      <li> <a href="## Struttura del Codice">Struttura del codice</a> </li>
+    </ul>
+    <li> <a href="#Versione Bella">Versione Con Grafica</a> </li>
+  </ol>
+</details>
+
+---
+
+# Chat con AI
 
 ## Descrizione
 **Chat Magika con AI** è un'applicazione Python con interfaccia grafica (GUI) che consente di interagire con un'intelligenza artificiale OpenAI. L'app offre funzioni per la gestione di conversazioni, esportazione di dati e personalizzazione visiva, garantendo un'esperienza interattiva e personalizzabile.
