@@ -1,5 +1,5 @@
-import tkinter as tk
-from tkinter import simpledialog
+import tkinter as tk #User interface
+from tkinter import simpledialog 
 from tkinter import scrolledtext
 from tkinter import font
 from tkinter import Menu
@@ -44,7 +44,7 @@ def invio_messaggio():
         full_response = ""
         try:
             response = client.chat.completions.create(
-                model="gpt-3.5-turbo-0125",
+                model="gpt-4o",
                 messages=chat_history,
                 stream=True,
                 temperature=api_settings["temperature"],
@@ -64,8 +64,8 @@ def invio_messaggio():
         prog.setState("normal")
 
         if full_response:
-            Aggiorna_textbox("OpenAI: " + full_response, "ai")
-            chat_history.append({"role": "ai", "content": full_response})
+            Aggiorna_textbox("OpenAI: " + full_response, "assistant")
+            chat_history.append({"role": "assistant", "content": full_response})
 
         waiting_label.grid_forget()
         user_input_entry.grid(row=1, column=0, sticky="ew", padx=5, pady=5)
@@ -110,17 +110,13 @@ def ConfigureAPI():
         api_key = simpledialog.askstring("Chi sei?", "Inserisci la chiave API:", parent=root, )
 
         global client
-        if api_key == "Steam":
-            api_key = "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"
-            client = OpenAI(api_key=api_key)
+        
+        client = OpenAI(api_key=api_key)
+        if verifica_api_key():
             break
         else:
-            client = OpenAI(api_key=api_key)
-            if verifica_api_key():
-                break
-            else:
-                messagebox.showerror("Errore", "API key errata. Prova a ricontrollarla.")
-            
+            messagebox.showerror("Errore", "API key errata. Prova a ricontrollarla.")
+        
 
 def estrai_testo_da_pdf(file_path):
     doc = fitz.open(file_path)
@@ -179,6 +175,7 @@ def verifica_api_key():
         )
         return True
     except Exception as e:
+        print(e)
         messagebox.showerror("Errore di Connessione", f"Errore durante la connessione all'API: {e}")
         return False
 
@@ -199,7 +196,11 @@ def esporta_chat_pdf():
     y = margine_y
 
     for item in lista_esportare:
-        role = "Tu:" if item['role'] == "user" else "Chat-GPT:"
+        if item['role'] == "user":
+                role = "Tu:"
+        else:
+            if item['role'] == "assistant":
+                role = "Chat-GPT" 
         content = item['content']
         testo_slice = f'{role} {content}'
 
@@ -233,7 +234,11 @@ def esporta_chat_testo():
     file_path += ".txt"
     with open(file_path, 'w') as file:
         for item in lista_esportare:
-            role = "Tu:" if item['role'] == "user" else "Chat-GPT:"
+            if item['role'] == "user":
+                role = "Tu:"
+            else:
+                if item['role'] == "assistant":
+                    role = "Chat-GPT" 
             content = item['content']
             file.write(f"{role} {content}\n")
     messagebox.showinfo("Successo", "Chat esportata correttamente in formato testuale.")
@@ -303,7 +308,7 @@ def refresh_ui():
     send_button.configure(background=style.lookup('TButton', 'background'),
                         foreground=style.lookup('TButton', 'foreground'))
     
-    text_area.tag_configure("ai", foreground=font_colore_ai)
+    text_area.tag_configure("assistant", foreground=font_colore_ai)
     text_area.tag_configure("user", foreground=font_colore_user)
     text_area.tag_configure("system", foreground=background_color_var)
     text_area.tag_configure("loading", foreground=background_color_var)
@@ -461,7 +466,7 @@ font_colore_ai = "#008000"
 font_colore_user = "#000000"
 background_color_var = "#808080"
 
-text_area.tag_configure("ai", foreground=font_colore_ai)
+text_area.tag_configure("assistant", foreground=font_colore_ai)
 text_area.tag_configure("user", foreground=font_colore_user)
 text_area.tag_configure("system", foreground=background_color_var)
 text_area.tag_configure("loading", foreground=background_color_var)
